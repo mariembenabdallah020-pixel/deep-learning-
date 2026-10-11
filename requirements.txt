@@ -1,0 +1,6 @@
+(Get-ChildItem data\raw\tmdb\*.json).Count
+(Get-ChildItem data\raw\posters\*.jpg).Counthttpx>=0.27
+tenacity>=8.2
+pandas>=2.1
+pyarrow>=15
+python-dotenv>=1.0

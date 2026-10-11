@@ -1,0 +1,14 @@
+# Versionnage des données : `pip install dvc && git init && dvc init && dvc repro`
+stages:
+  download:
+    cmd: python 01_download_movielens.py
+    deps: [01_download_movielens.py, config.py]
+    outs: [data/raw/movielens]
+  collect:
+    cmd: python 02_collect_tmdb.py
+    deps: [02_collect_tmdb.py, data/raw/movielens]
+    outs: [data/raw/tmdb, data/raw/posters]
+  normalize:
+    cmd: python 03_normalize.py
+    deps: [03_normalize.py, data/raw/tmdb, data/raw/movielens]
+    outs: [data/processed]
